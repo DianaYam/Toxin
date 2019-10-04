@@ -1,0 +1,229 @@
+
+//- примесь для задания основного вида текстовых полей
+
+@mixin field() {
+  font-family: Open-Sans, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  outline: none;
+  border: 1px solid $dark-shade-25;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px 14px;
+  max-width: 320px;
+  width: 100%;
+  color: $dark-shade-75;
+  cursor: pointer;
+  &::placeholder {
+    color: $dark-shade-25;
+  }
+  &:hover,
+  &:focus {
+    border-color: $dark-shade-50;
+  }
+}
+
+//- примесь для скрытия стандартного input
+
+@mixin hidden-input() {
+  visibility: hidden;
+  position: absolute;
+  margin: 0;
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+//- примесь для задания основного вида checkbox
+
+@mixin checkbox() {
+  cursor: pointer;
+  &.checkbox-block_checked {
+    .checkbox-box {
+      border-color: $purple;
+    }
+    .checkbox-mark {
+      opacity: 1;
+    }
+  }
+  &__content {
+    position: relative;
+    padding-left: 30px;
+  }
+  &__box {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark-shade-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  &__mark {
+    opacity: 0;
+    background: $purple-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 1.29em;
+    margin: 0;
+  }
+  &__input {
+    @include hidden-input();
+  }
+}
+
+//- примесь для задания основного вида кнопки
+
+@mixin button() {
+  border: none;
+  outline:none;
+  background: none;
+  box-sizing: border-box;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  border-radius: 22px;
+  &__text {
+    color: inherit;
+    font-weight: bold;
+    font-family: Open-Sans, sans-serif;
+    line-height: 1.25em;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@mixin button-styles() {
+  &_style_background {
+    @include button-style-background();
+  }
+  &_style_border {
+    @include button-style-border();
+  }
+  &_style_purple-text,
+  &_style_grey-text {
+    @include button-style-text();
+  }
+  &_style_purple-text {
+    color: $purple;
+  }
+  &_style_grey-text {
+    color: $dark-shade-50;
+  }
+}
+
+//- примесь для задания основного вида кнопки с заливкой
+
+@mixin button-style-background() {
+  background: $purple-gradient;
+  padding: 2px;
+  color: #fff;
+  &:hover {
+    background: $purple-gradient-50;
+  }
+  .button__text {
+    padding: 12px 18px 13px;
+    border-radius: 22px;
+  }
+}
+
+//- примесь для задания основного вида кнопки с рамкой
+
+@mixin button-style-border() {
+  background: $purple-gradient;
+  padding: 2px;
+  color: $purple;
+  &:hover {
+    background: $purple-gradient-50;
+  }
+  .button__text {
+    padding: 12px 18px 13px;
+    border-radius: 22px;
+    background-color: #fff;
+  }
+}
+
+//- примесь для задания основного вида текстовой кнопки
+
+@mixin button-style-text() {
+  border-radius: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+//- примесь для задания основного вида карточки с формой (для входа или регистрации)
+
+@mixin card() {
+  width: 380px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 39px 29px 29px;
+  &__header {
+    @include h1();
+    margin-bottom: 20px;
+  }
+  &__text-field {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__main-button {
+    width: 100%;
+  }
+  &__alternative-block {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+  &__alternative-text {
+    margin: 0;
+  }
+  &__alternative-button {
+    width: 99px;
+  }
+}
+
+@mixin date-dropdown() {
+  &__header {
+    @include h3();
+    margin-bottom: 5px;
+  }
+  &__label {
+    position: relative;
+  }
+  &__field {
+    @include field();
+    padding: 11px 14px 13px 12px;
+    &::placeholder {
+      font-size: 15px;
+      text-transform: none;
+    }
+  }
+  &__arrow {
+    position: absolute;
+    top: -1px;
+    right: 10px;
+    color: $dark-shade-50;
+    cursor: pointer;
+  }
+}
+
+
+
+

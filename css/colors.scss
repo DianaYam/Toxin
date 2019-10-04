@@ -1,0 +1,25 @@
+
+//- colors
+
+$dark-shade-100: #1F2041;
+$dark-shade-75: rgba($dark-shade-100, 0.75);
+$dark-shade-50: rgba($dark-shade-100, 0.5);
+$dark-shade-25: rgba($dark-shade-100, 0.25);
+$dark-shade-10: rgba($dark-shade-100, 0.1);
+$dark-shade-5: rgba($dark-shade-100, 0.05);
+
+$purple: #BC9CFF;
+$purple-second: #8BA4F9;
+$green: #6FCF97;
+$green-second: #66D2EA;
+
+
+// gradients
+
+$purple-gradient: linear-gradient(to bottom, $purple, $purple-second);
+
+$purple-gradient-50: linear-gradient(to bottom, rgba($purple, 0.5), rgba($purple-second, 0.5));
+
+$purple-gradient-25: linear-gradient(to bottom, rgba($purple, 0.25), rgba($purple-second, 0.25));
+
+$green-gradient: linear-gradient(to bottom, $green, $green-second);
