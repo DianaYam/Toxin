@@ -1,0 +1,99 @@
+
+mixin pagination(args)
+    .pagination(class!=attributes.class)
+        .pagination__container
+            ul.pagination__list
+                //- стрелка "Назад"
+                if args.active !== 1
+                    li.pagination__item.pagination-item.pagination-item_prev
+                        a.pagination-item__link
+                            i.pagination-item__arrow(class="material-icons") arrow_back
+
+                //- Отображение номеров страниц
+
+                //- когда страниц мало и многоточие не нужно
+                if args.max < 5
+                    - var num = 1
+
+                    while num <= args.max
+                        - var clsArr = []
+                        - clsArr.push('pagination__item pagination-item')
+
+                        if num == args.active
+                            - clsArr.push('pagination-item_active')
+                        li(class=clsArr.join(' '))
+                            a.pagination-item__link= num
+
+                        - num++
+                else
+                    //- проверяем, по какой схеме строить пагинацию:
+                    //- (1 ... 13 14 15) или (5 6 7 ... 15) в зависимости от активного элемента
+                    if args.active < args.max - 2
+                        //- по схеме (5 6 7 ... 15)
+                        - var num
+
+                        if args.active !== 1
+                            - num = args.active - 1
+                        else
+                            - num = 1
+
+                        - var i = 1
+
+                        while i <= 3
+                            - var clsArr = []
+                            - clsArr.push('pagination__item pagination-item')
+
+                            if num == args.active
+                                - clsArr.push('pagination-item_active')
+                            li(class=clsArr.join(' '))
+                                a.pagination-item__link= num
+
+                            - i++
+                            - num++
+
+                        li.pagination__item.pagination-item.pagination-item_dots ...
+
+                        li.pagination__item.pagination-item
+                            a.pagination-item__link= args.max
+                    else
+                        //- по схеме (1 ... 13 14 15)
+
+                        li.pagination__item.pagination-item
+                            a.pagination-item__link= 1
+
+                        li.pagination__item.pagination-item.pagination-item_dots ...
+
+                        - var i = 1
+                        - var num = args.max - 2
+
+                        while i <= 3
+                            - var clsArr = []
+                            - clsArr.push('pagination__item pagination-item')
+
+                            if num == args.active
+                                - clsArr.push('pagination-item_active')
+                            li(class=clsArr.join(' '))
+                                a.pagination-item__link= num
+
+                            - i++
+                            - num++
+
+                //- стрелка "Вперёд"
+                if args.active !== args.max
+                    li.pagination__item.pagination-item.pagination-item_next
+                        a.pagination-item__link
+                            i.pagination-item__arrow(class="material-icons") arrow_forward
+
+        p.pagination__caption
+            span.pagination__from=args.variantsOnPage * (args.active - 1) + 1
+            |&nbsp;–&nbsp;
+            span.pagination__to= args.active !== args.max ? args.variantsOnPage * args.active : args.allVariants
+            |&nbsp;из&nbsp;
+            //- округление 168 до 100 (трим всех разрядов кроме самого высокого):
+            //- число разрядов
+            - var digits = (+args.allVariants).toString().length
+            - var n = Math.pow(10, digits - 1)
+            //- округлённое число
+            - var roundedNum = Math.floor(args.allVariants / n) * n
+            span.pagination__all=roundedNum
+            |+ вариантов аренды

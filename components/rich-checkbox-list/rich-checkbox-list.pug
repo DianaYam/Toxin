@@ -1,0 +1,10 @@
+
+include ../rich-checkbox/rich-checkbox
+
+mixin rich-checkbox-list(args)
+    .rich-checkbox-list(class!=attributes.class)
+        h3.rich-checkbox-list__header= args.header
+        ul.rich-checkbox-list__items.rich-list
+            each opt in args.options
+                li.rich-list__item
+                    + rich-checkbox(opt)

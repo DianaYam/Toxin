@@ -1,0 +1,42 @@
+
+include ../button/button
+include ../logo/logo
+
+mixin header(args)
+    .header(class!=attributes.class)
+        + logo(class='header__logo')
+        .header__content.header-content
+            ul.header__menu.header-menu
+                li.header-menu__item
+                    a.header-menu__link.header-menu-link.header-menu-link_active(href='#') Home
+                li.header-menu__item
+                    a.header-menu__link.header-menu-link(href='#') About Us
+                li.header-menu__item.header-menu__item-dropdown.header-menu-item-dropdown
+                    a.header-menu__link.header-menu-link(href='#') Services
+                    i.header-menu__arrow(class="material-icons") keyboard_arrow_down
+                    ul.header-menu__dropdown.header-menu-dropdown
+                        li.header-menu-dropdown__item
+                            a.header-menu__link.header-menu-dropdown__link(href='#') Best hotels
+                        li.header-menu-dropdown__item
+                            a.header-menu__link.header-menu-dropdown__link(href='#') Help
+                li.header-menu__item
+                    a.header-menu__link.header-menu-link(href='#') Careers
+                li.header-menu__item
+                    a.header-menu__link.header-menu-link(href='#') News
+                li.header-menu__item
+                    a.header-menu__link.header-menu-link(href='#') Documentation
+            if(args.authorized)
+                .header__user.header-user
+                    a.header-menu__link.header-user__link(href='#')=args.username
+            else
+                .header__buttons.header-buttons
+                    + button({
+                        appearance: TYPE_BORDER,
+                        text: 'Login',
+                        padding: '7px 18px 8px 17px'
+                    })(class='header-buttons__button', onclick='location.href="http://hotel-booking-login.cw37069.tmweb.ru/"')
+                    + button({
+                        appearance: TYPE_BACKGROUND,
+                        text: 'Register',
+                        padding: '7px 18px 8px 19px'
+                    })(class='header-buttons__button', onclick='location.href="http://hotel-booking-registration.cw37069.tmweb.ru/"')

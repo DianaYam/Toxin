@@ -1,0 +1,68 @@
+
+include ../text-field/text-field
+include ../radio/radio
+include ../masked-text-field/masked-text-field
+include ../toggle/toggle
+include ../arrow-button/arrow-button
+include ../button/button
+
+mixin register-card(args)
+    .register-card(class!=attributes.class)
+        h1.register-card__header.register-card-header Регистрация аккаунта
+        .register-card__name.register-card-name
+            + text-field({
+                placeholder: 'Имя',
+                required: true,
+                name: 'name'
+            })(class='register-card__text-field')
+            + text-field({
+                placeholder: 'Фамилия',
+                required: true,
+                name: 'surname'
+            })(class='register-card__text-field')
+        .register-card__gender.register-card-gender
+            + radio({
+                text: 'Мужчина',
+                value: 'male',
+                name: 'reg-gender'
+            })(class='register-card__radio')
+            + radio({
+                text: 'Женщина',
+                value: 'female',
+                name: 'reg-gender'
+            })(class='register-card__radio')
+        .register-card__birth-date.register-card-birth-date
+            + masked-text-field({
+                header: 'Дата рождения',
+                maskType: TYPE_DATE,
+                required: true,
+                name: 'birth-date'
+            })(class='register-card__text-field')
+        .register-card__enter-data.register-card-enter-data
+            + text-field({
+                header: 'Данные для входа в сервис',
+                type: 'email',
+                placeholder: 'Email',
+                required: true,
+                name: 'email'
+            })(class='register-card__text-field')
+            + text-field({
+                type: 'password',
+                placeholder: 'Пароль',
+                required: true,
+                name: 'password'
+            })(class='register-card__text-field')
+        + toggle({
+            text: 'Получать спецпредложения',
+            name: 'offers'
+        })(class='register-card__toggle')
+        + arrow-button({
+            text: 'Перейти к оплате'
+        })(class='register-card__main-button', onclick='location.href="http://hotel-booking.cw37069.tmweb.ru/"')
+        .register-card__alternative-block.register-card-alt
+            p.register-card-alt__text Уже есть аккаунт на Toxin
+            + button({
+                appearance: TYPE_BORDER,
+                text: 'Войти',
+                padding: '12px 25px 13px'
+            })(class='register-card-alt__button', onclick='location.href="http://hotel-booking-login.cw37069.tmweb.ru/"')

@@ -1,0 +1,20 @@
+
+mixin rich-checkbox(args)
+    -
+        var cls = []
+
+        if(attributes.class) cls.push(attributes.class)
+
+        if (args.checked) cls.push('checkbox-block_checked')
+
+    .rich-checkbox.checkbox-block(class=cls.join(' '))
+        .rich-checkbox__content.checkbox-content
+            .rich-checkbox__box.checkbox-box
+                i.rich-checkbox__mark.checkbox-mark(class="material-icons") check
+            .rich-checkbox__text
+                h4.rich-checkbox__header= args.header
+                p.rich-checkbox__description= args.text
+        label.rich-checkbox__label.checkbox-label
+            input.rich-checkbox__input.checkbox-input(type='checkbox' name=args.name checked=args.checked || false)
+
+    //- классы checkbox-block, checkbox-box и т.д. поставлены здесь из-за сходства js-функционала компонентов checkbox и rich-checkbox. Таким образом, можно подключить один скрипт, обслуживающий два компонента.

@@ -1,0 +1,45 @@
+
+.exp-checkbox-list {
+  &__content {
+    position: relative;
+  }
+  &__header {
+    @include h3();
+    position: relative;
+    padding-right: 35px;
+    cursor: pointer;
+  }
+  &__arrow {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 10px;
+    transition: all linear .2s;
+    color: $dark-shade-50;
+  }
+  &__items {
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 19px);
+    left: 0;
+    visibility: hidden;
+    transition: all linear .2s;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &_opened {
+    .exp-checkbox-list__arrow {
+      transform: rotate(180deg);
+    }
+    .exp-checkbox-list__items {
+      visibility: visible;
+    }
+  }
+  &__item {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+
+.masked-text-field {
+  &__header {
+    margin: 0 0 5px;
+  }
+  &-header {
+    @include h3();
+  }
+  &__label {
+    display: block;
+    color: $dark-shade-100;
+  }
+  &__input {
+    @include field();
+  }
+}

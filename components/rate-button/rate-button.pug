@@ -1,0 +1,13 @@
+
+mixin rate-button(args)
+    - var i = 1;
+    //- если не указано число звёзд, берём значение по умолчанию
+    - var stars = args.numberOfStars || 5;
+
+    ul.rate-button(class!=attributes.class data-changeable=args.changeable)
+        while i <= stars
+            li.rate-button__item
+                label.rate-button__star(class=args.rating >= i ? 'rate-button__star_checked' : '')
+                    input.rate-button__input(type='radio' name=args.name value=args.name + i checked=args.rating===i++)
+                    i.rate-button__star-symbol.rate-button__star-symbol_not-checked(class="material-icons") star_border
+                    i.rate-button__star-symbol.rate-button__star-symbol_checked(class="material-icons") star

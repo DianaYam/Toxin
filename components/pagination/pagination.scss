@@ -1,0 +1,68 @@
+
+.pagination {
+  &__container {
+    margin-bottom: 7px;
+    text-align: center;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    letter-spacing: 0;
+    position: relative;
+    display: inline-block;
+  }
+  &__item {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  &__caption {
+    margin: 0;
+    letter-spacing: 0.6px;
+    text-align: center;
+  }
+  &__from {
+
+  }
+  &__to {
+
+  }
+  &__all {
+
+  }
+}
+
+.pagination-item {
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  &_active {
+    background: $purple-gradient;
+    color: #fff;
+  }
+  &_dots {
+    cursor: default;
+  }
+  &_prev,
+  &_next {
+    background: $green-gradient;
+    color: #fff;
+    position: absolute;
+  }
+  &_prev {
+    left: -40px;
+  }
+  &_next {
+    right: -40px;
+  }
+  &__link {
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 40px;
+    width: 40px;
+  }
+  &__arrow {
+    line-height: 40px;
+  }
+}

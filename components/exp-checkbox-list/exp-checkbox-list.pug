@@ -1,0 +1,12 @@
+
+include ../checkbox/checkbox
+
+mixin exp-checkbox-list(args)
+    .exp-checkbox-list(class!=attributes.class)
+        .exp-checkbox-list__content
+            h3.exp-checkbox-list__header= args.header
+                i.exp-checkbox-list__arrow(class="material-icons") keyboard_arrow_down
+            ul.exp-checkbox-list__items
+                each opt in args.options
+                    li.exp-checkbox-list__item
+                        + checkbox(opt)

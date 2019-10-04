@@ -1,0 +1,7 @@
+
+mixin point(args)
+    .point(class!=attributes.class)
+        .point__content
+            i.point__icon(class="material-icons")= args.icon
+            h4.point__header= args.header
+            p.point__text= args.text

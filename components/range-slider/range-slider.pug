@@ -1,0 +1,10 @@
+
+mixin range-slider(args)
+    .range(class!=attributes.class)
+        .range__content
+            h3.range__header.range-header= args.header
+                span.range-header__result
+                    span.range-header__from
+                    span &nbsp;-&nbsp;
+                    span.range-header__to
+            .range__slider.range-slider(data-min=args.min data-max=args.max data-min-value=args.firstValue data-max-value=args.lastValue data-step=args.step)

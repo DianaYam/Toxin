@@ -1,0 +1,7 @@
+
+mixin radio(args)
+    .radio(class!=attributes.class)
+        .radio__content.radio-content
+            p.radio__text= args.text
+        label.radio__label.radio-label
+            input.radio__input(type="radio" name=args.name value=args.value)

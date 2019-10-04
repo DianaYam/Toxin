@@ -1,0 +1,17 @@
+
+mixin like-button(args)
+
+    - var clsArr = []
+
+    if(args.liked)
+        - clsArr.push('like-button_liked')
+    if(attributes.class)
+        - clsArr.push(attributes.class)
+
+    .like-button(class=clsArr.join(' '))
+        .like-button__content.like-button-content
+            label.like-button__label
+                input.like-button__input(type="checkbox" checked=args.liked)
+                i.like-button__icon.like-icon.like-icon_not-liked(class="fa fa-heart-o" aria-hidden="true")
+                i.like-button__icon.like-icon.like-icon_liked(class="fa fa-heart" aria-hidden="true")
+                span.like-button__number= args.number

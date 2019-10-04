@@ -1,0 +1,15 @@
+
+.rich-checkbox {
+  @include checkbox();
+  &__header {
+    //font-size: 14px;
+    //line-height: 1.29em;
+    margin: 0 0 5px;
+  }
+  &__description {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.17em;
+    letter-spacing: 0.5px;
+  }
+}

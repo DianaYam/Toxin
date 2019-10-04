@@ -1,0 +1,11 @@
+
+include ../calendar/calendar
+
+mixin filter-date-dropdown(args)
+    .filter-date-dropdown(class!=attributes.class)
+        h3.filter-date-dropdown__header=args.header
+        label.filter-date-dropdown__label
+            + calendar({
+                placeholder: 'ДД ММ - ДД ММ'
+            })(class='filter-date-dropdown__field')
+            i.filter-date-dropdown__arrow(class="material-icons") keyboard_arrow_down

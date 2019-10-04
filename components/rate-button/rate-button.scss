@@ -1,0 +1,45 @@
+
+.rate-button {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &[data-changeable=true] {
+    .rate-button__star {
+      cursor: pointer;
+    }
+  }
+  &__item {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+  &__star {
+    position: relative;
+    &_checked {
+      .rate-button__star-symbol_checked {
+        visibility: visible;
+      }
+      .rate-button__star-symbol_not-checked {
+        visibility: hidden;
+      }
+    }
+  }
+  &__input {
+    @include hidden-input();
+  }
+  &__star-symbol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $purple-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &_checked {
+      visibility: hidden;
+    }
+    &_not-checked {
+      visibility: visible;
+    }
+  }
+}

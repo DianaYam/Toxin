@@ -1,0 +1,16 @@
+
+.filter-date-dropdown {
+  @include date-dropdown();
+  &__header {
+    margin: 0 0 5px;
+  }
+  &__field {
+    text-transform: lowercase;
+    &:focus {
+      & + .filter-date-dropdown__arrow {
+        color: $dark-shade-75;
+      }
+    }
+  }
+}
+

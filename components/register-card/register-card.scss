@@ -1,0 +1,44 @@
+
+.register-card {
+  @include card();
+  padding-bottom: 25px;
+  &__header {
+    margin: 0 0 20px;
+  }
+  &__name {
+    margin-bottom: 8px;
+  }
+  &__gender {
+    margin-bottom: 22px;
+  }
+  &__radio {
+    margin-right: 21px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__birth-date {
+    margin-bottom: 20px;
+  }
+  &__enter-data {
+    margin-bottom: 7px;
+  }
+  &__toggle {
+    margin-bottom: 23px;
+  }
+  &__main-button {
+    margin-bottom: 26px;
+  }
+  &__alternative-block {
+
+  }
+}
+
+.register-card-alt {
+  &__text {
+
+  }
+  &__button {
+
+  }
+}

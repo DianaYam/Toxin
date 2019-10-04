@@ -1,0 +1,16 @@
+
+include ../../components/header/header
+include ../../components/footer/footer
+include ../../components/creative-footer/creative-footer
+
+mixin headers-footers()
+    .headers-footers
+        + header({
+            authorized: false
+        })(class='headers-footers__item')
+        + header({
+            authorized: true,
+            username: 'Cosmin Negoita'
+        })(class='headers-footers__item')
+        + footer(class='headers-footers__item')
+        + creative-footer(class='headers-footers__item')

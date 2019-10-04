@@ -1,0 +1,7 @@
+
+mixin masked-text-field(args)
+    .masked-text-field(class!=attributes.class)
+        if args.header
+            h3.masked-text-field__header.masked-text-field-header= args.header
+        label.masked-text-field__label
+            input.masked-text-field__input(type='text' class='masked-text-field__input_' + args.maskType required=args.required name=args.name)
