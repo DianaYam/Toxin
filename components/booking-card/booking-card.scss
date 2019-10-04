@@ -1,0 +1,145 @@
+
+.booking-card {
+  @include card();
+  padding-top: 43px;
+  &__info {
+    margin-bottom: 22px;
+  }
+  &__date-dropdown {
+    margin-bottom: 21px;
+  }
+  &__guests {
+    margin-bottom: 12px;
+  }
+  &__price-calc {
+    margin-bottom: 19px;
+  }
+  &__total {
+    margin-bottom: 18px;
+  }
+  &__main-button {
+
+  }
+}
+
+.book-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  &__number {
+    line-height: 1em;
+    font-weight: bold;
+    color: $dark-shade-100;
+    position: relative;
+    font-size: 22px;
+  }
+}
+
+.book-info-number {
+  &__sign {
+    font-size: 15px;
+  }
+  &__value {
+
+  }
+  &__category {
+    text-transform: uppercase;
+    font-family: Open-Sans, sans-serif;
+    font-size: 12px;
+    color: $purple;
+    position: absolute;
+    left: calc(100% + 5px);
+    bottom: -2px;
+  }
+}
+
+.book-info-price {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.5em;
+  color: $dark-shade-50;
+  &__number {
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+.booking-price-calc {
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.29em;
+  &__table-row {
+
+  }
+  &__table-cell {
+    padding: 7px 0;
+    vertical-align: top;
+    &:first-child {
+      width: 216px;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+  &__info-sign {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.33em;
+    color: $dark-shade-25;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: -1px;
+    &:hover {
+      .booking-price-calc__tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  &__tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    transition: all linear 0.3s;
+    color: $dark-shade-75;
+    font-size: 11px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    background-color: #fff;
+    min-width: 190px;
+    padding: 5px 10px;
+    z-index: 100;
+  }
+}
+
+.booking-card-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+  &__caption {
+    font-size: 20px;
+    margin-right: 3px;
+  }
+  &__separator {
+    flex-grow: 1;
+    border-bottom: 1px dotted $dark-shade-25;
+  }
+  &__sum-wrapper {
+    font-size: 16px;
+    margin-left: 4px;
+  }
+  &__sum {
+
+  }
+}

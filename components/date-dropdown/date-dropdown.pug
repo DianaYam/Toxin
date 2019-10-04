@@ -1,0 +1,20 @@
+
+include ../calendar/calendar
+
+mixin date-dropdown(args)
+    .date-dropdowns(class!=attributes.class data-days=0)
+        .date-dropdowns__content.date-dropdowns-content
+            .date-dropdown.date-dropdowns__item
+                h3.date-dropdown__header.date-dropdown-header Прибытие
+                label.date-dropdown__label
+                    input.date-dropdown__field.date-dropdown__start-field(type='text' placeholder='ДД.ММ.ГГГГ')
+                    i.date-dropdown__arrow(class="material-icons") keyboard_arrow_down
+            .date-dropdown.date-dropdowns__item
+                h3.date-dropdown__header Выезд
+                label.date-dropdown__label
+                    input.date-dropdown__field.date-dropdown__end-field(type='text' placeholder='ДД.ММ.ГГГГ')
+                    i.date-dropdown__arrow(class="material-icons") keyboard_arrow_down
+            label.date-dropdowns__calendar-field-label
+                + calendar({
+                    placeholder: 'ДД ММ - ДД ММ'
+                })(class='date-dropdowns__calendar-field')

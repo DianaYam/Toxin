@@ -1,0 +1,32 @@
+
+include ../text-field/text-field
+include ../radio/radio
+include ../toggle/toggle
+include ../arrow-button/arrow-button
+include ../button/button
+
+mixin enter-card(args)
+    .enter-card(class!=attributes.class)
+        h1.enter-card__header.enter-card-header Войти
+        .enter-card__enter-data.enter-card-data
+            + text-field({
+                type: 'email',
+                placeholder: 'Email',
+                required: true,
+                name: 'email'
+            })(class='enter-card-data__field')
+            + text-field({
+                type: 'password',
+                placeholder: 'Пароль',
+                required: true,
+                name: 'password'
+            })(class='enter-card-data__field')
+        + arrow-button({
+            text: 'Войти'
+        })(class='enter-card__main-button', onclick='location.href="http://hotel-booking.cw37069.tmweb.ru/"')
+        .enter-card__alternative-block.enter-card-alternative-block
+            p.enter-card-alternative-block__text Нет аккаунта на Toxin?
+            + button({
+                appearance: TYPE_BORDER,
+                text: 'Создать'
+            })(class='enter-card-alternative-block__button', onclick='location.href="http://hotel-booking-registration.cw37069.tmweb.ru/"')

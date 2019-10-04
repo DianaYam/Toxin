@@ -1,0 +1,7 @@
+
+mixin bullet-list(args)
+    .bullet(class=attributes.class)
+        h3.bullet__header= args.header
+        ul.bullet__items.bullet-list
+            each opt in args.options
+                li.bullet-list__item= opt

@@ -1,0 +1,23 @@
+
+.checkbox-list-wrapper {
+  &__header {
+    margin: 0 0 17px;
+  }
+  &-header {
+    @include h3();
+  }
+  &__items {
+    margin: 0;
+  }
+}
+
+.checkbox-list {
+  list-style-type: none;
+  padding: 0;
+  &__item {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

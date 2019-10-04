@@ -1,0 +1,74 @@
+
+include ../color/color
+include ../text-type/text-type
+
+mixin colorsAndTypes()
+    -
+        var colors = [
+            {
+                header: 'Dark Shade 100%',
+                hexCode: '#1F2041',
+                rgba: 'rgba(31, 32, 65, 1)'
+            },
+            {
+                header: 'Dark Shade 75%',
+                hexCode: '#1F2041',
+                rgba: 'rgba(31, 32, 65, .75)'
+            },
+            {
+                header: 'Dark Shade 50%',
+                hexCode: '#1F2041',
+                rgba: 'rgba(31, 32, 65, .5)'
+            },
+            {
+                header: 'Dark Shade 25%',
+                hexCode: '#1F2041',
+                rgba: 'rgba(31, 32, 65, .25)'
+            },
+            {
+                header: 'Dark Shade 5%',
+                hexCode: '#1F2041',
+                rgba: 'rgba(31, 32, 65, .05)'
+            },
+            {
+                header: 'Purple',
+                hexCode: '#BC9CFF'
+            },
+            {
+                header: 'Green',
+                hexCode: '#6FCF97'
+            }
+        ]
+
+    -
+        var textTypes = [
+            {
+                type: 'h1',
+                name: 'H1',
+                text: 'This one is the sub-section or widget title'
+            },
+            {
+                type: 'h2',
+                name: 'H2',
+                text: 'Next one is the item title inside widgets'
+            },
+            {
+                type: 'h3',
+                name: 'H3',
+                text: 'This is a label or CTA text'
+            },
+            {
+                type: 'body',
+                name: 'Body',
+                text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+            }
+        ]
+
+    .colors-types
+        .colors-types__content.colors-types-content
+            .colors-types-content__colors.colors
+                each color in colors
+                    + color(color)(class='colors__item')
+            .colors-types-content__types.text-types
+                each textType in textTypes
+                    + text-type(textType)(class='text-types__item')

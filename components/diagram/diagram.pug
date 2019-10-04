@@ -1,0 +1,21 @@
+
+//- компонент в разработке
+
+mixin diagram(args)
+    .diagram
+        div.diagram__content.diagram-content
+            .diagram__svg-wrapper.diagram-svg-wrapper
+                svg.diagram-svg(width="150" height="150" viewBox="0 0 42 42" class="donut" role="img")
+                    circle.diagram-svg__circle(class="donut-segment" cx="21" cy="21" r="15.35" fill="transparent" stroke="#6FCF98" stroke-width="3" stroke-dasharray="25 75" stroke-dashoffset="0")
+                    circle.diagram-svg__circle(class="donut-segment" cx="21" cy="21" r="15.35" fill="transparent" stroke="#FFBB9C" stroke-width="3" stroke-dasharray="50 50" stroke-dashoffset='-23')
+                    circle.diagram-svg__circle(class="donut-big-hole" cx="21" cy="21" r="15.35" fill="white")
+                    circle.diagram-svg__circle(class="donut-segment" cx="21" cy="21" r="15.35" fill="white" stroke="#BC9CFF" stroke-width="3" stroke-dasharray="25 75" stroke-dashoffset="27.5")
+                .diagram-svg__caption.diagram-svg-caption
+                    .diagram-svg-caption__number 260
+                    | голосов
+
+            .diagram__labels.diagram-labels
+                p.diagram-labels__item.diagram-labels-item.diagram-labels-item_great Великолепно
+                p.diagram-labels__item.diagram-labels-item.diagram-labels-item_good Хорошо
+                p.diagram-labels__item.diagram-labels-item.diagram-labels-item_satisf Удовлетворительно
+                p.diagram-labels__item.diagram-labels-item.diagram-labels-item_disapp Разочарован

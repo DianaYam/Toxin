@@ -1,0 +1,10 @@
+
+include ../checkbox/checkbox
+
+mixin checkbox-list(args)
+    .checkbox-list-wrapper(class!=attributes.class)
+        h3.checkbox-list-wrapper__header.checkbox-list-wrapper-header= args.header
+        ul.checkbox-list-wrapper__items.checkbox-list
+            each opt in args.options
+                li.checkbox-list__item
+                    + checkbox(opt)

@@ -1,0 +1,35 @@
+
+.comment {
+  &-content {
+    padding: 0 15px 0 57px;
+  }
+  &__content {
+    position: relative;
+  }
+  &__photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 10px 20px $dark-shade-10;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__name {
+    font-weight: bold;
+    margin: 0;
+  }
+  &__date {
+    margin: 0 0 10px;
+  }
+  &__likes {
+    position: absolute;
+    top: 60px;
+    left: 4px;
+  }
+  &__text {
+    margin: 0;
+  }
+}

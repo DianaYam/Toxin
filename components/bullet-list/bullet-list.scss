@@ -1,0 +1,30 @@
+
+.bullet {
+  &__header {
+    @include h3();
+    margin-bottom: 8px;
+  }
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.bullet-list {
+  &__item {
+    padding: 5px 0 5px 21px;
+    position: relative;
+    &::before {
+      content:'';
+      position: absolute;
+      top: 12px;
+      left: -1px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $dark-shade-25;
+    }
+  }
+}

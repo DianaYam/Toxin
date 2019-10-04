@@ -1,0 +1,37 @@
+
+.cards {
+  &__content {
+    padding: 50px;
+    display: flex;
+  }
+  &__column {
+    width: 380px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__item {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__booking {
+
+  }
+  &__search {
+
+  }
+  &__calendar {
+    margin-bottom: 41px;
+  }
+  &__register {
+
+  }
+  &__enter {
+
+  }
+  &__room {
+
+  }
+}

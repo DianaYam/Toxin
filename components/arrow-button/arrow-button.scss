@@ -1,0 +1,19 @@
+
+.arrow-button {
+  @include button();
+  @include button_style_background();
+  text-align: center;
+  width: 320px;
+  &__text {
+    position: relative;
+    padding: 13px 14px 12px;
+  }
+  &__arrow {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+  &:hover {
+    background: $purple-gradient;
+  }
+}

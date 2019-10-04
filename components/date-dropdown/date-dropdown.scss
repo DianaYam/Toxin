@@ -1,0 +1,46 @@
+
+.date-dropdowns {
+  &__content {
+    position: relative;
+  }
+  &__calendar-field-label {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  &__calendar-field {
+    @include hidden-input();
+  }
+  &__item {
+    width: 160px;
+    flex-grow: 1;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.date-dropdowns-content {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+}
+
+.date-dropdown {
+  @include date-dropdown();
+  &__header {
+    margin: 0 0 5px;
+  }
+  &__field {
+    padding-top: 10px;
+  }
+  &:focus {
+    & + .date-dropdown__arrow {
+      color: $dark-shade-75;
+    }
+  }
+}
+
+.date-dropdown-header {
+
+}

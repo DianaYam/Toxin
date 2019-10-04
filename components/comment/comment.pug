@@ -1,0 +1,11 @@
+
+include ../../components/like-button/like-button
+
+mixin comment(args)
+    .comment(class!=attributes.class)
+        .comment__content.comment-content
+            img.comment__photo(src=args.photo alt=args.name)
+            h4.comment__name= args.name
+            p.comment__date= args.date
+            + like-button(args.like)(class='comment__likes')
+            p.comment__text= args.text

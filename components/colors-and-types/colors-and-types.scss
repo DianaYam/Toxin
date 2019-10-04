@@ -1,0 +1,33 @@
+
+.colors-types {
+  padding: 50px;
+  &__content {
+
+  }
+}
+
+.colors-types-content {
+  display: flex;
+  &__colors {
+    margin-right: 409px;
+  }
+}
+
+.colors {
+  &__item {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.text-types {
+  width: 460px;
+  &__item {
+    margin-bottom: 50px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

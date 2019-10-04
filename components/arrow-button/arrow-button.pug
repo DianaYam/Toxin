@@ -1,0 +1,5 @@
+
+mixin arrow-button(args)
+    button.arrow-button(type="submit" id!=attributes.id class!=attributes.class onclick!=attributes.onclick)
+        span.arrow-button__text=args.text
+            i.arrow-button__arrow(class="material-icons") arrow_forward

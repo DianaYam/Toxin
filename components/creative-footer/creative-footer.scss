@@ -1,0 +1,26 @@
+
+.creative-footer {
+  font-family: Open-Sans, sans-serif;
+  background: #fff;
+  padding: 99px 50px 105px;
+  text-align: center;
+  &__logo {
+    margin: 0 0 17px;
+  }
+  &__caption {
+    margin: 0 auto 29px;
+  }
+  &__socials {
+
+  }
+
+  &-logo {
+    display: inline-block;
+  }
+  &-caption {
+    max-width: 580px;
+  }
+  &-socials {
+
+  }
+}

@@ -1,0 +1,13 @@
+
+mixin button(args)
+    //- args.appearance = TYPE_BACKGROUND, TYPE_BORDER или TYPE_TEXT
+
+    - var btnCls = [];
+
+    - btnCls.push('button_style_' + args.appearance);
+
+    if attributes.class
+        - btnCls.push(attributes.class)
+
+    button.button(class=btnCls.join(' ') onclick!=attributes.onclick)
+        span.button__text(style=args.padding ? 'padding:' + args.padding : '')= args.text

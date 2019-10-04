@@ -1,0 +1,56 @@
+
+include ../date-dropdown/date-dropdown
+include ../dropdown/dropdown
+include ../arrow-button/arrow-button
+
+mixin booking-card(args)
+    .booking-card(class!=attributes.class)
+        .booking-card__info.book-info
+            .book-info__number.book-info-number
+                span.book-info-number__sign='№ '
+                //- отображение числа с пробелами
+                span.book-info-number__value=args.roomNumber.toString().replace(/\B(?=(?:\d{3})+$)/g, ' ')
+                if(args.category)
+                    span.book-info-number__category=args.category
+            .book-info__price.book-info-price
+                span.book-info-price__number=args.price.toString().replace(/\B(?=(?:\d{3})+$)/g, ' ') + '₽'
+                | &nbsp;в сутки
+        + date-dropdown(class='booking-card__date-dropdown')
+        + dropdown({
+            type: 'guests',
+            header: 'Гости'
+        })(class='booking-card__guests')
+        table.booking-card__price-calc.booking-price-calc(data-price=args.price data-service-charge=args.serviceCharge data-service-charge-discount=args.serviceChargeDiscount data-additional-service-charge=args.additionalServiceCharge)
+            tr.booking-price-calc__table-row
+                td.booking-price-calc__table-cell=args.price.toString().replace( /\B(?=(?:\d{3})+$)/g, ' ' )
+                    |₽ x&nbsp;
+                    span.booking-price-calc__days
+                td.booking-price-calc__table-cell
+                td.booking-price-calc__table-cell
+                    span.booking-price-calc__subtotal
+                    |₽
+            tr.booking-price-calc__table-row
+                - var text = 'Сбор за услуги'
+                if(args.serviceChargeDiscount)
+                    - text = text + ': скидка ' + args.serviceChargeDiscount.toString().replace( /\B(?=(?:\d{3})+$)/g, ' ' ) + '₽'
+                td.booking-price-calc__table-cell=text
+                td.booking-price-calc__table-cell
+                    .booking-price-calc__info-sign='i'
+                        .booking-price-calc__tooltip='Скидка предоставляется при бронировании любого номера отеля Spa Resort до 31.05.2019'
+                td.booking-price-calc__table-cell=(args.serviceCharge - args.serviceChargeDiscount).toString().replace( /\B(?=(?:\d{3})+$)/g, ' ' ) + '₽'
+            tr.booking-price-calc__table-row
+                td.booking-price-calc__table-cell='Сбор за дополнительные услуги'
+                td.booking-price-calc__table-cell
+                    .booking-price-calc__info-sign='i'
+                        .booking-price-calc__tooltip='В дополнительные услуги входит свободное посещение спортзала, бассейна и СПА'
+                td.booking-price-calc__table-cell=args.additionalServiceCharge.toString().replace( /\B(?=(?:\d{3})+$)/g, ' ' ) + '₽'
+        .booking-card__total.booking-card-total
+            .booking-card-total__caption
+                |Итого
+            .booking-card-total__separator
+            .booking-card-total__sum-wrapper
+                span.booking-card-total__sum
+                |₽
+        + arrow-button({
+            text: 'Забронировать'
+        })(class='booking-card__main-button', onclick='location.href="http://hotel-booking.cw37069.tmweb.ru/"')

@@ -1,0 +1,8 @@
+
+mixin color(args)
+    .color(class!=attributes.class)
+        .color__content
+            .color__demonstration(style='background-color:' + (args.rgba || args.hexCode))
+            .color__info
+                h3.color__header=args.header
+                p.color__hex-code=args.hexCode

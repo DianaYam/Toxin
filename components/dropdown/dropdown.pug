@@ -1,0 +1,50 @@
+
+include ../../components/button/button
+
+mixin dropdown(args)
+
+    // args.type= TYPE_GUESTS или TYPE_PREFERENCES
+
+    - var options = []
+    - var initialText = ''
+    - var cls = []
+
+    if args.type === TYPE_PREFERENCES
+        - options = [{optionName: 'Спальни', inputName: 'bedrooms'}, {optionName: 'Кровати', inputName: 'beds'}, {optionName: 'Ванные комнаты', inputName: 'bathrooms'}]
+        - initialText = 'Конфигурация номера'
+        - cls.push('dropdown_config')
+
+    else if args.type === TYPE_GUESTS
+        - options = [{optionName: 'Взрослые', inputName: 'adults'}, {optionName: 'Дети', inputName: 'children'}, {optionName: 'Младенцы', inputName: 'babies'}]
+        - initialText = 'Сколько гостей'
+        - cls.push('dropdown_guests')
+
+    if(attributes.class)
+        - cls.push(attributes.class)
+
+    .dropdown(class=cls.join(' '))
+        h3.dropdown__header.dropdown-header= args.header
+        .dropdown__content.dropdown-content
+            .dropdown__result.dropdown-result
+                .dropdown-result__text(data-text=initialText)= initialText
+                i.dropdown-result__arrow(class="material-icons") keyboard_arrow_down
+            .dropdown__list.dropdown-list
+                ul.dropdown-list__options.dropdown-options
+                    each opt in options
+                        li.dropdown-options__item.dropdown-option
+                            .dropdown-option__text= opt.optionName
+                            .dropdown-option__quantity.dropdown-option-quantity
+                                .dropdown-option-quantity__button.dropdown-option-quantity-button.dropdown-option-quantity-button_down.dropdown-option-quantity-button_disabled -
+                                label
+                                    input.dropdown-option-quantity__number(type="number" name=opt.inputName min="0" max="9" step="1" value="0")
+                                .dropdown-option-quantity__button.dropdown-option-quantity-button.dropdown-option-quantity-button_up +
+                if args.type === TYPE_GUESTS
+                    .dropdown-list__buttons.dropdown-list-buttons
+                        + button({
+                            appearance: TYPE_GREY_TEXT,
+                            text: 'Очистить'
+                        })(class='dropdown-list-buttons__button dropdown-list-button dropdown-list-button_clear dropdown-list-button_hidden')
+                        + button({
+                            appearance: TYPE_PURPLE_TEXT,
+                            text: 'Применить'
+                        })(class='dropdown-list-buttons__button dropdown-list-button dropdown-list-button_apply')

@@ -1,0 +1,36 @@
+
+.enter-card {
+  @include card();
+  padding-bottom: 27px;
+  &__header {
+    margin: 0 0 20px;
+  }
+  &__enter-data {
+    margin-bottom: 20px;
+  }
+  &__main-button {
+    margin-bottom: 26px;
+  }
+  &__alternative-block {
+
+  }
+}
+
+.enter-card-header {
+
+}
+
+.enter-card-data {
+  &__field {
+    margin-bottom: 10px;
+  }
+}
+
+.enter-card-alternative-block {
+  &__text {
+
+  }
+  &__button {
+
+  }
+}

@@ -1,0 +1,6 @@
+
+mixin calendar(args)
+    if args.inline
+        .calendar(class!=attributes.class)
+    else
+        input.calendar(class!=attributes.class type="text" placeholder=args.placeholder)

@@ -1,0 +1,9 @@
+
+include ../logo/logo
+include ../socials/socials
+
+mixin creative-footer()
+    .creative-footer(class!=attributes.class)
+        + logo(class='creative-footer__logo creative-footer-logo')
+        p.creative-footer__caption.creative-footer-caption Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis
+        + socials(class='creative-footer__socials creative-footer-socials')
