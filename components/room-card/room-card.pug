@@ -1,0 +1,29 @@
+
+include ../rate-button/rate-button
+
+mixin room-card(args)
+    .room-card(class!=attributes.class)
+        .room-card-slider-wrapper
+            .room-card__slider.room-card-slider(class='owl-carousel owl-theme')
+                if args.photos
+                    each photo in args.photos
+                        .room-card-slider__item
+                            img.room-card-slider__photo(src=photo.src alt=photo.altText)
+        .room-card__content.room-card-content(onclick!=attributes.onclick)
+            .room-card-content__info.room-info
+                .room-info__number.room-info-number
+                    span.room-info-number__sign='№ '
+                    //- отображение числа с пробелами
+                    span.room-info-number__value=args.roomNumber.toString().replace(/\B(?=(?:\d{3})+$)/g, ' ')
+                    if(args.category)
+                        span.room-info-number__category=args.category
+                .room-info__price.room-info-price
+                    span.room-info-price__number=args.price.toString().replace(/\B(?=(?:\d{3})+$)/g, ' ') + '₽'
+                    | &nbsp;в сутки
+            .room-card-content__extra-info.room-extra-info
+                + rate-button({
+                    rating: args.rating,
+                    name: 'his-rate',
+                    changeable: 'false'
+                })(class='room-extra-info__rating')
+                .room-extra-info__reviews(data-reviews-number=args.reviewsNumber data-forms=['Отзыв', 'Отзыва', 'Отзывов'])

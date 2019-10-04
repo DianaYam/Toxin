@@ -1,0 +1,45 @@
+
+.toggle {
+  &__label {
+    display: block;
+    cursor: pointer;
+  }
+  &__input {
+    @include hidden-input();
+    &:checked ~ .toggle__text:before {
+      border: 1px solid $purple;
+    }
+    &:checked ~ .toggle__text:after {
+      left: 24px;
+      background: $purple-gradient;
+    }
+  }
+  &__text {
+    position: relative;
+    padding-left: 50px;
+    display: block;
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 9px);
+      left: 0;
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      transition: all linear .2s;
+      border: 1px solid $dark-shade-25;
+      box-sizing: border-box;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 5px);
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $dark-shade-25;
+      transition: all linear .2s;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+
+mixin text-field(args)
+    .text-field(class!=attributes.class)
+        if args.header
+            h3.text-field__header.text-field-header= args.header
+        label.text-field__label
+            input.text-field__input.text-field-input(type=args.type placeholder=args.placeholder required=args.required name=args.name maxlength=args.maxlength || 20)

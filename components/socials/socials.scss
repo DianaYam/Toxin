@@ -1,0 +1,36 @@
+
+.socials {
+  &__list {
+    margin: 0;
+  }
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    &__item {
+      display: inline-block;
+      margin-right: 21px;
+      position: relative;
+      line-height: 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &__link {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    &__icon {
+      font-size: 25px;
+      background: $purple-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+}

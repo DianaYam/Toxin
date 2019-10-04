@@ -1,0 +1,24 @@
+
+.room-search-card {
+  @include card();
+  &__header {
+    margin: 0 0 21px;
+  }
+  &__dates {
+    margin-bottom: 21px;
+  }
+  &__guests {
+    margin-bottom: 32px;
+  }
+  &__main-button {
+
+  }
+}
+
+
+
+
+
+
+
+

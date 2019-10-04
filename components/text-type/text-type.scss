@@ -1,0 +1,25 @@
+
+.text-type {
+  &_h1 {
+    @include h1();
+  }
+  &_h2 {
+    @include h2();
+  }
+  &_h3 {
+    @include h3();
+  }
+  &_body {
+    @include text();
+  }
+  &__name {
+    display: table-cell;
+    text-align: right;
+    min-width: 40px;
+    padding: 0 14px;
+  }
+  &__demonstration {
+    display: table-cell;
+    padding: 0 14px;
+  }
+}

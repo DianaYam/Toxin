@@ -1,0 +1,16 @@
+
+include ../date-dropdown/date-dropdown
+include ../dropdown/dropdown
+include ../arrow-button/arrow-button
+
+mixin room-search-card(args)
+    .room-search-card(class!=attributes.class)
+        h1.room-search-card__header.room-search-card-header Найдём номера под ваши пожелания
+        + date-dropdown(class='room-search-card__dates')
+        + dropdown({
+            type: TYPE_GUESTS,
+            header: 'Гости'
+        })(class='room-search-card__guests')
+        + arrow-button({
+            text: 'Подобрать номер'
+        })(class='room-search-card__main-button', onclick='location.href="http://hotel-booking-search-room.cw37069.tmweb.ru/"')

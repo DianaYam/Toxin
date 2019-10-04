@@ -1,0 +1,6 @@
+
+mixin toggle(args)
+    .toggle(class!=attributes.class)
+        label.toggle__label
+            input.toggle__input(type="checkbox" name=args.name checked=args.checked || false)
+            span.toggle__text= args.text

@@ -1,0 +1,10 @@
+
+mixin text-type(args)
+    - var cls = []
+    if (attributes.class)
+        - cls.push(attributes.class)
+    - cls.push('text-type_' + args.type)
+
+    .text-type(class=cls.join(' '))
+        .text-type__name=args.name
+        .text-type__demonstration=args.text

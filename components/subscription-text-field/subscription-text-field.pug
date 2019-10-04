@@ -1,0 +1,8 @@
+
+mixin subscription-text-field(args)
+    .subscription-text-field(class!=attributes.class)
+        if args.header
+            h3.subscription-text-field__header= args.header
+        label.subscription-text-field__label
+            input.subscription-text-field__input(type='email' placeholder=args.placeholder || 'Email' required=args.required name=args.name maxlength=args.maxlength || 20)
+            i.subscription-text-field__arrow(class="material-icons") arrow_forward

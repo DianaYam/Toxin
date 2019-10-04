@@ -1,0 +1,21 @@
+
+.subscription-text-field {
+  &__header {
+    @include h3();
+    margin: 0 0 5px;
+  }
+  &__label {
+    position: relative;
+  }
+  &__input {
+    @include field();
+    padding-right: 40px;
+  }
+  &__arrow {
+    cursor: pointer;
+    color: $purple;
+    position: absolute;
+    right: 9px;
+    top: -2px;
+  }
+}
