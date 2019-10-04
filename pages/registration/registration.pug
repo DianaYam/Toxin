@@ -1,0 +1,32 @@
+
+extends ../page-template
+
+block title
+    |Toxin - registration
+
+block styles
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js")
+
+    link(rel="stylesheet" href="css/style.css" type="text/css")
+
+block content
+    //- parcel src/pages/registration/registration.pug
+
+    include ../../components/header/header
+    include ../../components/register-card/register-card
+    include ../../components/footer/footer
+
+    .registration
+        + header({
+            authorized: false
+        })(class='registration__header')
+
+        .registration__main-block.main-block
+            + register-card(class='main-block__card')
+
+        + footer(class='registration__footer')
+
+block append scripts
+    script(src="js/script.js")
+    script(src='../../components/masked-text-field/masked-text-field.js')
+    script(src='../../components/radio/radio.js')

@@ -1,0 +1,193 @@
+
+extends ../page-template
+
+block title
+    |Toxin - search room
+
+block styles
+    link(href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css")
+    script(src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js")
+
+    link(href="../../css/datepicker.css" rel="stylesheet" type="text/css")
+    script(src="../../js/datepicker.js")
+
+    link(href="../../css/owl.carousel.min.css" rel="stylesheet" type="text/css")
+    script(src="../../js/owl.carousel.min.js")
+
+    link(rel="stylesheet" href="css/style.css" type="text/css")
+
+block content
+    //- parcel src/pages/search-room/search-room.pug
+
+    include ../../components/header/header
+    include ../../components/filter-date-dropdown/filter-date-dropdown
+    include ../../components/dropdown/dropdown
+    include ../../components/range-slider/range-slider
+    include ../../components/checkbox-list/checkbox-list
+    include ../../components/rich-checkbox-list/rich-checkbox-list
+    include ../../components/exp-checkbox-list/exp-checkbox-list
+    include ../../components/room-card/room-card
+    include ../../components/pagination/pagination
+    include ../../components/footer/footer
+
+    .search-room
+        + header({
+            authorized: false
+        })(class='search-room__header')
+
+        .search-room__main-block.main-block
+            .main-block__filter.filter
+                + filter-date-dropdown({
+                    header: 'Даты пребывания в отеле'
+                })(class='filter__dates')
+
+                + dropdown({
+                    type: TYPE_GUESTS,
+                    header: 'Гости'
+                })(class='filter__guests')
+
+                .filter__range.range
+                    + range-slider({
+                        header: 'Диапазон цены',
+                        min: 0,
+                        max: 15700,
+                        firstValue: 5000,
+                        lastValue: 10000,
+                        step: 1
+                    })(class='range__slider')
+                    p.range__caption='Стоимость за сутки пребывания в номере'
+
+                + checkbox-list({
+                    header: 'Checkbox buttons',
+                    options: [
+                        {
+                            text: 'Можно курить',
+                            name: 'smoke'
+                        },
+                        {
+                            text: 'Можно с питомцами',
+                            name: 'pets'
+                        },
+                        {
+                            text: 'Можно пригласить гостей (до 10 человек)',
+                            name: 'guests'
+                        }
+                    ]
+                })(class='filter__checkbox-list')
+
+                + rich-checkbox-list({
+                    header: 'Доступность',
+                    options: [
+                        {
+                            name: 'wide-corridor',
+                            header: 'Широкий коридор',
+                            text: 'Ширина коридоров в номере не менее 91 см.'
+                        },
+                        {
+                            name: 'assistant-for-disabled',
+                            header: 'Помощник для инвалидов',
+                            text: 'На 1 этаже вас встретит специалист и проводит до номера'
+                        }
+                    ]
+                })(class='filter__rich-checkbox-list')
+
+                + dropdown({
+                    type: TYPE_PREFERENCES,
+                    header: 'Удобства номера'
+                })(class='filter__preferences')
+
+                + exp-checkbox-list({
+                    header: 'Дополнительные удобства',
+                    options: [
+                        {
+                            text: 'Завтрак',
+                            name: 'breakfast'
+                        },
+                        {
+                            text: 'Письменный стол',
+                            name: 'desk'
+                        },
+                        {
+                            text: 'Стул для кормления',
+                            name: 'feeding-chair'
+                        },
+                        {
+                            text: 'Кроватка',
+                            name: 'Crib'
+                        },
+                        {
+                            text: 'Телевизор',
+                            name: 'tv'
+                        },
+                        {
+                            text: 'Шампунь',
+                            name: 'shampoo'
+                        },
+                        {
+                            text: 'Телевизор',
+                            name: 'tv2'
+                        },
+                        {
+                            text: 'Шампунь',
+                            name: 'shampoo2'
+                        }
+                    ]
+                })(class='filter__exp-list')
+
+            .main-block__result.result
+                h1.result__header='Номера, которые мы для вас подобрали'
+
+                -
+                    var typicalRoom = {
+                        photos: [
+                            {
+                                src: '../../img/room-1-1.jpg',
+                                altText: 'bedroom'
+                            },
+                            {
+                                src: '../../img/room-1-2.jpg',
+                                altText: 'bedroom'
+                            },
+                            {
+                                src: '../../img/room-1-3.jpg',
+                                altText: 'bedroom'
+                            },
+                            {
+                                src: '../../img/room-1-4.jpg',
+                                altText: 'bedroom'
+                            }
+                        ],
+                        roomNumber: 888,
+                        category: LUXE,
+                        price: 9990,
+                        rating: 5,
+                        reviewsNumber: 145
+                    }
+
+                - var n = 0;
+
+                .result__rooms.rooms
+                    while n < 12
+                        + room-card(typicalRoom)(class='rooms__item', onclick='location.href="http://hotel-booking-room-details.cw37069.tmweb.ru/"')
+                        - n++
+
+                + pagination({
+                    active: 1,
+                    max: 15,
+                    variantsOnPage: 12,
+                    allVariants: 174
+                })(class='result__pagination')
+
+        + footer(class='search-room__footer')
+
+
+block append scripts
+    script(src="js/script.js")
+    script(src='../../components/checkbox/checkbox.js')
+    script(src='../../components/dropdown/dropdown.js')
+    script(src='../../components/exp-checkbox-list/exp-checkbox-list.js')
+    script(src='../../components/calendar/calendar.js')
+    script(src='../../components/filter-date-dropdown/filter-date-dropdown.js')
+    script(src='../../components/range-slider/range-slider.js')
+    script(src='../../components/rate-button/rate-button.js')
+    script(src='../../components/room-card/room-card.js')

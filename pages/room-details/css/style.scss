@@ -1,0 +1,145 @@
+
+@import "../../../css/main";
+
+@import 'blocks';
+
+.room-details {
+  &__header {
+
+  }
+  &__photos {
+
+  }
+  &__main-block {
+    padding: 71px 140px 67px;
+  }
+  &__footer {
+
+  }
+}
+
+.photos {
+  height: 485px;
+  &__item {
+    &:first-child {
+      float: left;
+      width: 68%;
+      height: 100%;
+      background: url('../img/image1.png') center/cover;
+    }
+    &:nth-child(2) {
+      float: right;
+      width: 32%;
+      height: 50%;
+      background: url('../img/image2.png') center/cover;
+    }
+    &:last-child {
+      float: right;
+      width: 32%;
+      height: 50%;
+      background: url('../img/image3.png') center/cover;
+    }
+  }
+}
+
+.main-block {
+  display: flex;
+  justify-content: space-between;
+  &__all-info {
+    margin-right: 70px;
+  }
+  &__book {
+
+  }
+}
+
+.all-info {
+  display: flex;
+  flex-wrap: wrap;
+  &__room-info {
+    width: 280px;
+    margin-bottom: 14px;
+    margin-right: 82px;
+  }
+  &__impressions {
+
+  }
+  &__comments {
+    flex-grow: 1;
+    margin-bottom: 11px;
+  }
+  &__rules {
+    width: 270px;
+    margin-right: 91px;
+  }
+  &__cancel {
+    width: 314px;
+  }
+}
+
+.room-info {
+  &__header {
+    @include h2();
+    margin: 0;
+  }
+  &__point {
+
+  }
+}
+
+.impressions {
+  &__header {
+    @include h2();
+    margin: 0;
+  }
+}
+
+.comments {
+  &__header {
+    @include h2();
+    margin: 0 0 20px;
+    position: relative;
+  }
+  &__number {
+    @include text();
+    position: absolute;
+    right: 0;
+  }
+  &__item {
+    margin-bottom: 23px;
+  }
+}
+
+.rules {
+  &__header {
+    @include h2();
+    padding-left: 20px;
+    margin: 0 0 12px;
+  }
+  &__list {
+
+  }
+}
+
+.cancel {
+  &__header {
+    @include h2();
+    margin: 0 0 17px;
+  }
+  &__text {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.book {
+  &__card {
+
+  }
+}
+
+
+
+
+

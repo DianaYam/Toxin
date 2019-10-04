@@ -1,0 +1,25 @@
+
+@import "../../../css/main";
+
+@import 'blocks';
+
+.sign-in {
+  &__header {
+
+  }
+  &__main-block {
+
+  }
+  &__footer {
+
+  }
+}
+
+.main-block {
+  background: url('../img/enter.png') center 79% / cover;
+  padding: 163px 0 162px;
+  box-sizing: border-box;
+  &__card {
+    margin: 0 auto;
+  }
+}

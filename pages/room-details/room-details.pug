@@ -1,0 +1,115 @@
+
+extends ../page-template
+
+block title
+    |Toxin - room details
+
+block styles
+    link(href="../../css/datepicker.css" rel="stylesheet" type="text/css")
+    script(src="../../js/datepicker.js")
+
+    link(rel="stylesheet" href="css/style.css" type="text/css")
+
+block content
+    //- parcel src/pages/room-details/room-details.pug
+
+    include ../../components/header/header
+    include ../../components/point/point
+    include ../../components/comment/comment
+    include ../../components/bullet-list/bullet-list
+    include ../../components/booking-card/booking-card
+    include ../../components/diagram/diagram
+    include ../../components/footer/footer
+
+    .room-details
+        + header({
+            authorized: false
+        })(class='room-details__header')
+
+        .room-details__photos.photos
+            .photos__item
+            .photos__item
+            .photos__item
+
+        .room-details__main-block.main-block
+            .main-block__all-info.all-info
+                .all-info__room-info.room-info
+                    h2.room-info__header='Сведения о номере'
+                    + point({
+                        icon: 'tag_faces',
+                        header: 'Комфорт',
+                        text: 'Шумопоглощающие стены'
+                    })(class='room-info__point')
+                    + point({
+                        icon: 'location_city',
+                        header: 'Удобство',
+                        text: 'Окно в каждой из спален'
+                    })(class='room-info__point')
+                    + point({
+                        icon: 'whatshot',
+                        header: 'Уют',
+                        text: 'Номер оснащён камином'
+                    })(class='room-info__point')
+
+                .all-info__impressions.impressions
+                    h2.impressions__header Впечатления от номера
+                    .impressions__diagram.impressions-diagram
+                        + diagram(class='impressions-diagram__chart')
+
+                .all-info__comments.comments
+                    h2.comments__header='Отзывы посетителей номера'
+                        span.comments__number 2 отзыва
+                    + comment({
+                        name: 'Мурад Сарафанов',
+                        photo: '../../img/man.jpg',
+                        date: '5 дней назад',
+                        like: {
+                            liked: true,
+                            number: 12
+                        },
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+                    })(class='comments__item')
+                    + comment({
+                        name: 'Патрисия Стёклышкова',
+                        photo: '../../img/man.jpg',
+                        date: 'Неделю назад',
+                        like: {
+                            liked: false,
+                            number: 2
+                        },
+                        text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
+                    })(class='comments__item')
+
+                .all-info__rules.rules
+                    h2.rules__header='Правила'
+                    + bullet-list({
+                        options: [
+                            'Нельзя с питомцами',
+                            'Без вечеринок и мероприятий',
+                            'Время прибытия — после 13:00, а выезд до 12:00'
+                        ]
+                    })(class='rules__list')
+
+                .all-info__cancel.cancel
+                    h2.cancel__header='Отмена'
+                    p.cancel__text='Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
+
+            .main-block__book.book
+                + booking-card({
+                    roomNumber: 888,
+                    category: LUXE,
+                    price: 9990,
+                    serviceCharge: 2179,
+                    serviceChargeDiscount: 2179,
+                    additionalServiceCharge: 300
+                })(class='book__card')
+
+        + footer(class='room-details__footer')
+
+block append scripts
+    script(src="js/script.js")
+    script(src='../../components/booking-card/booking-card.js')
+    script(src='../../components/calendar/calendar.js')
+    script(src='../../components/date-dropdown/date-dropdown.js')
+    script(src='../../components/dropdown/dropdown.js')
+    script(src='../../components/like-button/like-button.js')

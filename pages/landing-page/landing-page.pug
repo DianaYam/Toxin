@@ -1,0 +1,45 @@
+
+extends ../page-template
+
+block title
+    |Toxin - hotel booking
+
+block styles
+    link(href="../../css/datepicker.css" rel="stylesheet" type="text/css")
+    script(src="../../js/datepicker.js")
+
+    link(href="../../css/owl.carousel.min.css" rel="stylesheet" type="text/css")
+    script(src="../../js/owl.carousel.min.js")
+
+    link(rel="stylesheet" href="css/style.css" type="text/css")
+
+block content
+    //- parcel src/pages/landing-page/landing-page.pug
+
+    include ../../components/header/header
+    include ../../components/room-search-card/room-search-card
+    include ../../components/footer/footer
+
+    .landing-page
+        + header({
+            authorized: false
+        })(class='landing-page__header')
+
+        .landing-page__main-block.main-block
+            .main-block__slider.slider(class='owl-carousel owl-theme')
+                .slider__item
+                    img.slider__photo(src='img/image-3.png')
+                .slider__item
+                    img.slider__photo(src='img/image-1.png')
+                .slider__item
+                    img.slider__photo(src='img/image-2.png')
+            + room-search-card(class='main-block__card')
+
+        + footer(class='landing-page__footer')
+
+
+block append scripts
+    script(src="js/script.js")
+    script(src='../../components/calendar/calendar.js')
+    script(src='../../components/date-dropdown/date-dropdown.js')
+    script(src='../../components/dropdown/dropdown.js')

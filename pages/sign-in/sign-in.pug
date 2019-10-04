@@ -1,0 +1,28 @@
+
+extends ../page-template
+
+block title
+    |Toxin - sign in
+
+block styles
+    link(rel="stylesheet" href="css/style.css" type="text/css")
+
+block content
+    //- parcel src/pages/sign-in/sign-in.pug
+
+    include ../../components/header/header
+    include ../../components/enter-card/enter-card
+    include ../../components/footer/footer
+
+    .sign-in
+        + header({
+            authorized: false
+        })(class='sign-in__header')
+
+        .sign-in__main-block.main-block
+            + enter-card(class='main-block__card')
+
+        + footer(class='sign-in__footer')
+
+block append scripts
+    script(src="js/script.js")

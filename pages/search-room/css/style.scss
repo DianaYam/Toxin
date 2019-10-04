@@ -1,0 +1,104 @@
+
+@import '../../../css/main';
+
+@import 'blocks';
+
+.search-room {
+  &__header {
+
+  }
+  &__main-block {
+
+  }
+  &__footer {
+
+  }
+}
+
+.main-block {
+  display: flex;
+  padding: 30px 140px 72px;
+  &__filter {
+    width: 320px;
+    margin-right: 60px;
+  }
+  &__result {
+    flex-grow: 1;
+  }
+}
+
+.filter {
+  &__dates {
+    margin-bottom: 21px;
+  }
+  &__guests {
+    margin-bottom: 30px;
+  }
+  &__range {
+    margin-bottom: 30px;
+  }
+  &__checkbox-list {
+    margin-bottom: 31px;
+  }
+  &__rich-checkbox-list {
+    margin-bottom: 30px;
+  }
+  &__preferences {
+    margin-bottom: 31px;
+  }
+  &__exp-list {
+
+  }
+}
+
+.range {
+  &__slider {
+    margin-bottom: 5px;
+  }
+  &__caption {
+    font-size: 11px;
+    line-height: 14px;
+    color: $dark-shade-50;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.result {
+  &__header {
+    @include h1();
+    margin: 0 0 21px;
+  }
+  &__rooms {
+
+  }
+  &__pagination {
+
+  }
+}
+
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  &__item {
+    margin-bottom: 21px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
